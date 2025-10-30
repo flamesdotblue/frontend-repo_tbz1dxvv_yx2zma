@@ -1,28 +1,33 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import FeeCalculator from './components/FeeCalculator';
+import Features from './components/Features';
+import FAQ from './components/FAQ';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div className="min-h-screen w-full bg-black text-white">
+      {/* Decoración de fondo */}
+      <div className="pointer-events-none fixed inset-0 -z-0">
+        <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-fuchsia-600/20 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-purple-700/20 blur-3xl" />
       </div>
+
+      <Hero />
+      <Features />
+      <FeeCalculator />
+      <FAQ />
+
+      <footer className="border-t border-white/10 bg-black/60 py-10 text-center text-sm text-white/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p>
+            © {new Date().getFullYear()} Abogacía Futurista — Calculadora de honorarios orientativa. No
+            constituye asesoramiento jurídico.
+          </p>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
